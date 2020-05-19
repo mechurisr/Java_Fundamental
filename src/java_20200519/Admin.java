@@ -15,7 +15,7 @@ public class Admin {
 	// 생성자 (Constructor)
 	// 생성자는 반환값이 없고, 이름은 클래스 이름과 동일
 	// 생성자의 역할은 인스턴스 변수 초기화
-	// alt+shift+s => o
+	// alt+shift+s => o      
 	public Admin(String id, String pwd, String email, int level) {
 		super();// 부모 클래스의 디폴트 생성자를 호출
 		this.id = id;
