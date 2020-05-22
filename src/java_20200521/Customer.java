@@ -5,7 +5,7 @@ public class Customer {
 	private String addr;
 	public Customer(String name, String addr) {
 		this.name = name;
-		this.name = addr;
+		this.addr = addr;
 	}
 	public String getName() {
 		return name;
