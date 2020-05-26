@@ -9,38 +9,62 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class PrintStreamDemo {
-	
+
 	public static void main(String[] args) {
+		PrintStream monitor = System.out;// 출력장치와 연결된 PrintStream
+
+		monitor.println("Hello World!");
+
+		System.err.println("Hello");
+
 		FileInputStream fis = null;
 		BufferedInputStream bis = null;
 		FileOutputStream fos = null;
 		BufferedOutputStream bos = null;
 		PrintStream ps = null;
-		
+
 		try {
 			fis = new FileInputStream("");
 			bis = new BufferedInputStream(fis);
+
 			fos = new FileOutputStream("");
 			bos = new BufferedOutputStream(fos);
-			ps = new PrintStream(bos,true);//true => autoFlush
+			// 파일과 연결돼 있는 PrintStream
+			ps = new PrintStream(bos, true);// true => autoFlush
+
+			int readByte = 0;
+			while ((readByte = bis.read()) != -1) {
+				// ps.print(readByte);//buffer 기능이 없음.
+				ps.write(readByte);// buffer 기능을 갖고 있음
+			}
+			// flush() 안해도 됨...
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-
-		
-		int readByte = 0;
-		try {
-			while((readByte = bis.read()) != -1) {
-				ps.print(readByte);
-				ps.write(readByte);
-}
-		} catch (IOException e1) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
+		} finally {
+			if (ps != null)
+				ps.close();
+
+			try {
+				if (fis != null)
+					fis.close();
+				if (bis != null)
+					bis.close();
+				if (fos != null)
+					fos.close();
+				if (bos != null)
+					bos.close();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 
-}
-
-}	
-	
+	}
 }
