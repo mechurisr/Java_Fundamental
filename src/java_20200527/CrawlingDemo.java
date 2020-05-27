@@ -30,9 +30,9 @@ public class CrawlingDemo {
 		Element liElement = elements.get(i);
 		System.out.println(liElement.text());
 	}
-*/		
+	
 		
-
+*/
 		String url = "https://sports.news.naver.com/kfootball/index.nhn";
 		
 		Document doc = null;
@@ -56,6 +56,6 @@ public class CrawlingDemo {
 		}
 		
 		
-		
+	
 	}
 }
