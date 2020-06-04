@@ -48,7 +48,6 @@ public class MemberDaoPrac {
 			}
 
 		}
-
 		return resultCount;
 
 	}

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 //Member 테이블을 접근하기 위한 클래스
 //DAO : Data Access Object
 public class MemberDao {
+	
+	
+	
 	public int insert(MemberDto m) {
 		int resultCount = 0;
 
@@ -113,6 +116,7 @@ public class MemberDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
+		
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kpc", "kpc12", "kpc1234");
 
