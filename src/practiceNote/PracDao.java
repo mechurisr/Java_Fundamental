@@ -45,11 +45,16 @@ public int insert(PracDto e) {
 		pstmt.setString(++index, e.getName());
 		pstmt.setString(++index, e.getJob());
 		pstmt.setInt(++index, e.getMgr());
-		pstmt.
+		pstmt.setInt(++index, e.getSal());
+		pstmt.setInt(++index, e.getComm());
+		pstmt.setInt(++index, e.getDeptNo());
 		
+		resultCount = pstmt.executeUpdate();
 	} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
+		
+		
 	}
 	return resultCount;
 
